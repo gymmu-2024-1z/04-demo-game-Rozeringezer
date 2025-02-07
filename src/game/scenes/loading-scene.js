@@ -59,6 +59,7 @@ export default class LoadingScene extends Phaser.Scene {
    * die Lade-Szene brauchen wir aber nur einen Text.
    */
   create() {
+    this.createAnimations()
     // Damit erstellen wir ein Spielobjekt Text. Wir geben die Position in x und y
     // an, und geben den Text der angezeigt werden soll an.
     const text = this.add.text(320, 240, "Press SPACE to start the Game.")
@@ -110,5 +111,16 @@ export default class LoadingScene extends Phaser.Scene {
     })
 
     // TODO: Erstellen Sie die restlichen Animationen
+
+    // Hier wird die Animation für das Rechtslaufen erstellt.
+    this.anims.create({
+      key: "player_left",
+      frames: this.anims.generateFrameNumbers("player", {
+        start: 3,
+        end: 5,
+      }),
+      frameRate: 10,
+      repeat: -1,
+    })
   }
 }
